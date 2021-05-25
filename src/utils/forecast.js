@@ -14,7 +14,10 @@ const forecast = (lat, long, callback) => {
             const cur = response.body.current.temperature;
             const feel = response.body.current.feelslike;
             const condition = response.body.current.weather_descriptions[0];
-            callback(undefined, `Weather is "${condition}" with currently "${cur}" degree temperature and it feels like "${feel}" degree.`
+            const humi = response.body.current.humidity;
+            const precip = response.body.current.precip;
+            callback(undefined, `Weather is "${condition}" with currently "${cur}" degree temperature and it feels like "${feel}" degree.
+            The Humidity is ${humi}% and the Precipitation is ${precip} mm.`
             );
         }
     })
